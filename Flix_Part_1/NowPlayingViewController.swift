@@ -26,8 +26,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         tableView.insertSubview(refreshControl, at: 0)
         fetchMovies()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        self.activityIndicator.startAnimating()
+    }
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        self.activityIndicator.startAnimating()
         fetchMovies()
     }
 
@@ -38,27 +41,22 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.activityIndicator.startAnimating()
-       // self.activityIndicator.stopAnimating()
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         self.activityIndicator.startAnimating()
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         let posterPathString = movie["poster_path"] as! String
         let baseURLString = "https://image.tmdb.org/t/p/w500"
         let posterURL = URL(string: baseURLString + posterPathString)!
-        
         cell.posterImageView.af_setImage(withURL: posterURL)
-        
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        self.activityIndicator.stopAnimating()
-        
+     //   self.activityIndicator.stopAnimating()
         return cell
     }
     
@@ -84,8 +82,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-       // self.activityIndicator.startAnimating()
-       
+         self.activityIndicator.stopAnimating()
         return 130.0;//Choose your custom row height
         
     }

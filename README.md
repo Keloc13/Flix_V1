@@ -37,6 +37,8 @@ Here's a walkthrough of implemented user stories:
 
 <img src='Flix_V1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+Here's for the Loading screen, which may be very brief.
+<img src='Flix_V1_Loading.gif' title='Loading' width='' alt='Loading'/>
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
