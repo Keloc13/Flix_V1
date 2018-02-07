@@ -27,10 +27,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         fetchMovies()
     }
     override func viewDidAppear(_ animated: Bool) {
-        self.activityIndicator.startAnimating()
     }
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
-        self.activityIndicator.startAnimating()
         fetchMovies()
     }
 
@@ -39,8 +37,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell){
+            let movie = movies[indexPath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+        }
+    }// sending data to another view controller
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.activityIndicator.startAnimating()
         return movies.count
     }
     
@@ -56,7 +62,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         cell.posterImageView.af_setImage(withURL: posterURL)
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-     //   self.activityIndicator.stopAnimating()
+        self.activityIndicator.stopAnimating()
         return cell
     }
     
@@ -82,7 +88,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-         self.activityIndicator.stopAnimating()
         return 130.0;//Choose your custom row height
         
     }
