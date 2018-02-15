@@ -27,11 +27,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.insertSubview(refreshControl, at: 0)
         fetchMovies()
+        self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
     }
-    override func viewDidAppear(_ animated: Bool) {
-    }
+    
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
         fetchMovies()
+        //tableView.estimatedRowHeight = tableView.rowHeight
+        //tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,12 +88,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         }
         // Do any additional setup after loading the view.
         task.resume()
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 130.0;//Choose your custom row height
-        
     }
 
 }

@@ -25,6 +25,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.18646315586419754" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.9959909297139804" blue="0.95466182430430346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <activityIndicatorView key="tableFooterView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="Etv-vt-Yp4">
+                                    <rect key="frame" x="0.0" y="158" width="320" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="tintColor" white="0.59344416488835838" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="color" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="130" id="B3w-7A-TWU" customClass="MovieCell" customModule="Flix_Part_1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="130"/>
@@ -50,9 +57,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="A logger defends his family from a group of dangerous drug runners." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6F-h6-R4g">
-                                                    <rect key="frame" x="144" y="39" width="168" height="81.5"/>
+                                                    <rect key="frame" x="144" y="39" width="168" height="72"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -66,9 +73,9 @@
                                                 <constraint firstItem="x6F-h6-R4g" firstAttribute="top" secondItem="fjS-aq-a9g" secondAttribute="bottom" constant="8" id="jcW-Ib-zHb"/>
                                                 <constraint firstItem="x6F-h6-R4g" firstAttribute="leading" secondItem="Fcu-gB-hkT" secondAttribute="trailing" constant="8" id="oee-6J-YJX"/>
                                                 <constraint firstAttribute="trailing" secondItem="fjS-aq-a9g" secondAttribute="trailing" constant="8" id="qzj-Co-GCV"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fcu-gB-hkT" secondAttribute="bottom" constant="7.5" id="uGc-xD-cBf"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fcu-gB-hkT" secondAttribute="bottom" constant="4" id="uGc-xD-cBf"/>
                                                 <constraint firstItem="Fcu-gB-hkT" firstAttribute="top" secondItem="9RT-Tv-gcD" secondAttribute="top" constant="8" id="vwC-Mx-liS"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x6F-h6-R4g" secondAttribute="bottom" constant="8" id="yUX-PB-eKS"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x6F-h6-R4g" secondAttribute="bottom" constant="4" id="yUX-PB-eKS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,13 +88,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Etv-vt-Yp4">
-                                <rect key="frame" x="144" y="270" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="0.59344416488835838" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="color" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -317,6 +317,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gKA-qz-jpN"/>
+        <segue reference="KeM-eo-Dkz"/>
     </inferredMetricsTieBreakers>
 </document>

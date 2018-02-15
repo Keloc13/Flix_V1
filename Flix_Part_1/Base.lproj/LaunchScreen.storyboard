@@ -18,19 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-dT-lof">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-dT-lof">
                                 <rect key="frame" x="98" y="185" width="138" height="139"/>
-                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Flix" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-i4-kiD">
-                                <rect key="frame" x="119" y="332" width="97" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Flix" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-i4-kiD">
+                                <rect key="frame" x="119" y="332" width="97" height="61"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7Dh-i4-kiD" secondAttribute="bottom" constant="175" id="6OR-zA-104"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Dh-i4-kiD" secondAttribute="trailing" constant="104" id="8DH-7J-0W6"/>
+                            <constraint firstItem="TtT-dT-lof" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="165" id="Ev0-fF-uX7"/>
+                            <constraint firstItem="7Dh-i4-kiD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="ILZ-tz-dlA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TtT-dT-lof" secondAttribute="trailing" constant="84" id="NMS-cl-fe9"/>
+                            <constraint firstItem="TtT-dT-lof" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="RlI-as-F1V"/>
+                            <constraint firstItem="7Dh-i4-kiD" firstAttribute="top" secondItem="TtT-dT-lof" secondAttribute="bottom" constant="8" id="Uwr-4H-sOl"/>
+                            <constraint firstItem="7Dh-i4-kiD" firstAttribute="top" secondItem="TtT-dT-lof" secondAttribute="bottom" constant="8" id="hvM-Ob-2lO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

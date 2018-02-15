@@ -9,15 +9,20 @@
 import UIKit
 
 class MovieCell: UITableViewCell {
-
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+   
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+       
+    }//when the parent change the dimension, this happens.
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
