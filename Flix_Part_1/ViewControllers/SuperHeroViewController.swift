@@ -10,7 +10,7 @@ import UIKit
 
 class SuperHeroViewController: UIViewController, UICollectionViewDataSource {
 
-    var movies:[[String:Any]] = []
+    var movies:[Movie] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -25,8 +25,10 @@ class SuperHeroViewController: UIViewController, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "posterCell", for: indexPath) as! PosterCell
+        print(indexPath.item)
+   
         let movie = movies[indexPath.item]
-        if  let posterPathString = movie["poster_path"] as? String {
+        if  let posterPathString = movie.posterString {
             let baseURLString = "https://image.tmdb.org/t/p/w500"
             let posterURL = URL(string: baseURLString + posterPathString)!
             cell.posterImage.af_setImage(withURL: posterURL)
@@ -48,22 +50,11 @@ class SuperHeroViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func fetchMovies() {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
-        
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary  = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let movies = dataDictionary["results"] as! [[String: Any]]
+        MovieApiManager().nowPlayingMovies{(movie: [Movie]?, error: Error?) in if let movies = movie{
                 self.movies = movies
                 self.collectionView.reloadData()
-                //self.refreshControl.endRefreshing()
             }
         }
-        task.resume()
     }
     /*
     // MARK: - Navigation

@@ -9,13 +9,22 @@
 import UIKit
 
 class MovieCell: UITableViewCell {
+    
+    var movie: Movie! {
+        didSet {
+            let baseURLString = "https://image.tmdb.org/t/p/w500"
+            let posterURL = URL(string: baseURLString + movie.posterString!)!
+            posterImageView.af_setImage(withURL: posterURL)
+            titleLabel.text = movie.title
+            overviewLabel.text = movie.description
+        }
+    }
+    
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-   
     }
 
     override func layoutSubviews() {
