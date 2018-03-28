@@ -25,8 +25,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.18646315586419754" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.9959909297139804" blue="0.95466182430430346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="bc7-l5-H8S">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <activityIndicatorView key="tableFooterView" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="Etv-vt-Yp4">
-                                    <rect key="frame" x="0.0" y="158" width="320" height="37"/>
+                                    <rect key="frame" x="0.0" y="462" width="320" height="37"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="0.59344416488835838" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,7 +39,7 @@
                                 </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="130" id="B3w-7A-TWU" customClass="MovieCell" customModule="Flix_Part_1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="130"/>
+                                        <rect key="frame" x="0.0" y="72" width="320" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B3w-7A-TWU" id="9RT-Tv-gcD">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
@@ -101,6 +106,7 @@
                     <navigationItem key="navigationItem" title="Movies" id="eJY-Qa-o44"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Etv-vt-Yp4" id="eeb-Me-Hsz"/>
+                        <outlet property="searchBar" destination="bc7-l5-H8S" id="Wft-K1-V7B"/>
                         <outlet property="searchDisplayController" destination="qEm-v0-o97" id="Dgd-Gh-ATg"/>
                         <outlet property="tableView" destination="cAv-JR-pqi" id="5Ug-Cm-xB8"/>
                     </connections>
@@ -130,6 +136,7 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SMH-yz-6Hn">
                                 <rect key="frame" x="16" y="189.5" width="119" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="DdK-Bx-LD6"/>
                                     <constraint firstAttribute="height" constant="128" id="FsG-0a-IUO"/>
@@ -190,6 +197,32 @@
             </objects>
             <point key="canvasLocation" x="1646.25" y="98.239436619718305"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="kQb-HJ-0ke">
+            <objects>
+                <viewController storyboardIdentifier="trailer" id="H0C-nl-Z95" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wb3-uu-3Vt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tFu-WZ-5Ly">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="O5E-p7-5Hk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RWz-aJ-bfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2559.375" y="100.35211267605634"/>
+        </scene>
         <!--Now Playing-->
         <scene sceneID="Ax4-19-uqh">
             <objects>
@@ -237,7 +270,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kax-hH-pBw">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hsI-tJ-u2B">
                                     <size key="itemSize" width="160" height="201"/>
@@ -271,12 +304,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hvR-xc-jyr">
+                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kax-hH-pBw" firstAttribute="top" secondItem="dBU-yu-uVK" secondAttribute="top" id="Mjw-45-mxA"/>
+                            <constraint firstItem="Kax-hH-pBw" firstAttribute="top" secondItem="hvR-xc-jyr" secondAttribute="bottom" id="5f4-yN-okD"/>
+                            <constraint firstItem="hvR-xc-jyr" firstAttribute="trailing" secondItem="dBU-yu-uVK" secondAttribute="trailing" id="AgE-l1-Bb1"/>
                             <constraint firstItem="Kax-hH-pBw" firstAttribute="trailing" secondItem="dBU-yu-uVK" secondAttribute="trailing" id="MrL-BL-nSf"/>
+                            <constraint firstItem="hvR-xc-jyr" firstAttribute="top" secondItem="dBU-yu-uVK" secondAttribute="top" id="mEa-Kl-grc"/>
                             <constraint firstItem="Kax-hH-pBw" firstAttribute="bottom" secondItem="dBU-yu-uVK" secondAttribute="bottom" id="ovj-JS-fmk"/>
+                            <constraint firstItem="hvR-xc-jyr" firstAttribute="leading" secondItem="dBU-yu-uVK" secondAttribute="leading" id="pgx-Si-XbR"/>
+                            <constraint firstItem="Kax-hH-pBw" firstAttribute="top" secondItem="hvR-xc-jyr" secondAttribute="bottom" id="sBi-bd-2Mk"/>
                             <constraint firstItem="Kax-hH-pBw" firstAttribute="leading" secondItem="dBU-yu-uVK" secondAttribute="leading" id="xqy-pB-M3F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dBU-yu-uVK"/>
@@ -284,6 +325,7 @@
                     <navigationItem key="navigationItem" id="djm-XM-9er"/>
                     <connections>
                         <outlet property="collectionView" destination="Kax-hH-pBw" id="hPJ-GW-gVs"/>
+                        <outlet property="searchBar" destination="hvR-xc-jyr" id="EBH-Zw-BbE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16R-Qx-h1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
